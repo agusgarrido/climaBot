@@ -16,5 +16,6 @@ client = tweepy.Client(BEARER_TOKEN, API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCE
 auth = tweepy.OAuth1UserHandler(API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
 
+mensaje='hola'
 def botExec(mensaje):
-    client.create_tweet(text = f'{mensaje}')
+    client.create_tweet(text = f'{mensaje}\n#ClimaBot')
