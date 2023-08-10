@@ -27,7 +27,7 @@ def realtime(response):
     humedad = values['humidity']
     prob_precipitacion = values['precipitationProbability']
 
-    return f'{localizacion}\nTemperatura: {temperatura:.0f}°C || Sensación Térmica: {sensacion_termica:.0f}°C\nHumedad: {humedad}% || Prob. Precipitación: {prob_precipitacion}%'
+    return f'{localizacion}\nTemperatura: {temperatura:.1f}°C || Sensación Térmica: {sensacion_termica:.1f}°C\nHumedad: {humedad}% || Prob. Precipitación: {prob_precipitacion}%'
 
 # Ejecución
 mensaje = realtime(response)
