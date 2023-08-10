@@ -2,7 +2,7 @@ name: ClimaBot - Twitter
 
 on:
   schedule:
-    - cron: '*/6 * * * *' 
+    - cron: '0 * * * *' 
 
 jobs:
   run_bot_realtime:
@@ -15,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.10.5
+          python-version: '3.10.5'
 
       - name: Instalar dependencias
         run: |
