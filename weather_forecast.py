@@ -1,6 +1,6 @@
 import requests
 from datetime import datetime
-import locale
+from babel.dates import format_date
 from bot import *
 from dotenv import load_dotenv
 import os
@@ -19,10 +19,9 @@ response = requests.get(url, headers=headers).json()
 
 # Obtener día
 def obtenerNombre(fecha):
-    locale.setlocale(locale.LC_TIME, 'es_ES')
     fecha = datetime.strptime(fecha, "%Y-%m-%dT%H:%M:%SZ")
-    nombre_dia = fecha.strftime('%A')
-    return nombre_dia
+    locale = 'es'
+    return format_date(fecha, 'EEEE', locale=locale).upper()
 
 # Pronóstico semanal
 def forecast(response):
@@ -30,7 +29,7 @@ def forecast(response):
     pronostico = ''
     for dia in dias[1:4]:
         values = dia['values']
-        nombre_dia = obtenerNombre(dia['time']).upper()
+        nombre_dia = obtenerNombre(dia['time']).upper() 
         temperatura_min = values['temperatureMin']
         temperatura_max = values['temperatureMax']
         prob_precipitacion = values['precipitationProbabilityAvg']
