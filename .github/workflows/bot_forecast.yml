@@ -1,8 +1,8 @@
-name: ClimaBot - Twitter - v1.0.0
+name: ClimaBot - Twitter - v1.0.1
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 0 * * *'
 
 jobs:
   run_bot_realtime:
@@ -22,8 +22,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt 
 
-      - name: Realtime Weather
-        run: python realtime_weather.py
+      - name: Forecast
+        run: python weather_forecast.py
         env:
           API_KEY_WEATHER: ${{ secrets.API_KEY_WEATHER }}
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN}}
