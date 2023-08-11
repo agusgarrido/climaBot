@@ -5,7 +5,7 @@ on:
     - cron: '50 22 * * *'
 
 jobs:
-  run_bot_realtime:
+  run_bot_forecast:
     runs-on: ubuntu-latest
 
     steps:
