@@ -17,8 +17,6 @@ headers = {"accept": "application/json"}
 
 response = requests.get(url, headers=headers).json()
 
-dias = response['timelines']['daily']
-
 # Obtener día
 def obtenerNombre(fecha):
     locale.setlocale(locale.LC_TIME, 'es_ES')
@@ -27,8 +25,8 @@ def obtenerNombre(fecha):
     return nombre_dia
 
 # Pronóstico semanal
-def forecast(dias):
-    dias = dias
+def forecast(response):
+    dias = response['timelines']['daily']
     pronostico = ''
     for dia in dias[1:4]:
         values = dia['values']
@@ -40,6 +38,6 @@ def forecast(dias):
     return pronostico
 
 # Ejecución
-pronostico = forecast(dias)
+pronostico = forecast(response)
 mensaje = f'/ PRONÓSTICO EXTENDIDO /\n{pronostico}'
 botExec(mensaje)
