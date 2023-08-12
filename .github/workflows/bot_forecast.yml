@@ -2,7 +2,7 @@ name: ClimaBot - Twitter - v1.0.1
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '15 0 * * *'
 
 jobs:
   run_bot_forecast:
