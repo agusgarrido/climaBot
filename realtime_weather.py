@@ -9,8 +9,11 @@ load_dotenv()
 # Llamada a la API
 API_KEY_WEATHER = os.getenv('API_KEY_WEATHER')
 
-url = f"https://api.tomorrow.io/v4/weather/realtime?location=buenos%20aires&apikey={API_KEY_WEATHER}"
+# Feature: Configurable LOCATION for API URL
+LOCATION = os.getenv('LOCATION', 'Buenos Aires')
 
+# Build the API URL using the LOCATION variable
+url = f"https://api.tomorrow.io/v4/weather/realtime?location={quote(LOCATION)}&apikey={API_KEY_WEATHER}"
 headers = {"accept": "application/json"}
 
 response = requests.get(url, headers=headers).json()
